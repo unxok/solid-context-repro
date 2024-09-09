@@ -3,5 +3,5 @@ import solid from "vite-plugin-solid";
 
 export default defineConfig({
 	plugins: [solid()],
-	base: "/solid-context-repro",
+	base: "/solid-context-repro/",
 });
