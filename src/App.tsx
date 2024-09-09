@@ -3,7 +3,6 @@ import {
 	createContext,
 	createSignal,
 	onCleanup,
-	onMount,
 	Setter,
 	useContext,
 } from "solid-js";
