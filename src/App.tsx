@@ -61,10 +61,6 @@ const ConsumerStore = () => {
 		ctx.setCountStore((prev) => ({ num: prev.num + 2 }));
 	};
 
-	onMount(() => {
-		document.addEventListener("click", increment);
-	});
-
 	onCleanup(() => {
 		document.removeEventListener("click", increment);
 	});
@@ -74,6 +70,14 @@ const ConsumerStore = () => {
 			<h2>storeCount: {ctx.countStore.num}</h2>
 			<div class='button-container'>
 				<p>Listener attached to document</p>
+				<button onClick={() => document.addEventListener("click", increment)}>
+					attach listener
+				</button>
+				<button
+					onClick={() => document.removeEventListener("click", increment)}
+				>
+					remove listener
+				</button>
 				<button data-increment-store={true}>+2</button>
 			</div>
 			<div class='button-container'>
@@ -101,10 +105,6 @@ const ConsumerSignal = () => {
 		ctx.setSignalCount((prev) => prev + 2);
 	};
 
-	onMount(() => {
-		document.addEventListener("click", increment);
-	});
-
 	onCleanup(() => {
 		document.removeEventListener("click", increment);
 	});
@@ -114,6 +114,14 @@ const ConsumerSignal = () => {
 			<h2>signalCount: {ctx.signalCount()}</h2>
 			<div class='button-container'>
 				<p>Listener attached to document</p>
+				<button onClick={() => document.addEventListener("click", increment)}>
+					attach listener
+				</button>
+				<button
+					onClick={() => document.removeEventListener("click", increment)}
+				>
+					remove listener
+				</button>
 				<button data-increment-signal={true}>+2</button>
 			</div>
 			<div class='button-container'>
